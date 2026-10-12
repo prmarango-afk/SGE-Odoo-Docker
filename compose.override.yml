@@ -1,0 +1,3 @@
+services:
+  web:
+    command: ["odoo", "--dev=xml", "--log-level=info", "--workers=0"]
