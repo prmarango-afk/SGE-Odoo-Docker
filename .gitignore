@@ -1,0 +1,9 @@
+# Contraseñas y datos secretos
+.env
+
+# Datos que genera Odoo al funcionar (no son código)
+filestore/
+sessions/
+
+# Configuración de Odoo (lleva la Master Password)
+config/odoo.conf

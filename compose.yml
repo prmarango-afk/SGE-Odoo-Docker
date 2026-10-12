@@ -1,0 +1,25 @@
+services:
+  db:
+     image: postgres:16
+     env_file: .env
+     volumes:
+       - db-data:/var/lib/postgresql/data
+
+  web:
+     image: odoo:18
+     depends_on:
+       - db 
+     ports:
+       - "8069:8069"
+     environment:
+       HOST: db
+       USER: ${POSTGRES_USER}
+       PASSWORD: ${POSTGRES_PASSWORD}
+     volumes:
+       - odoo-data:/var/lib/odoo
+       - ./addons:/mnt/extra-addons
+       - ./config:/etc/odoo
+
+volumes:
+    db-data:
+    odoo-data:
